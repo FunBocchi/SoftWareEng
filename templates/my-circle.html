@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的圈子</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/style2.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>我的圈子</h1>
+            <nav>
+                <ul>
+                    <li><a href="/homePage">退出</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="circle-info">
+                <h2>我的个人圈子</h2>
+                <p><strong>导师：</strong>{{ tutor_name }}</p>
+                <p><strong>描述：</strong>{{ description }}</p>
+            </section>
+
+            <section class="book-list">
+                <h2>当前书单</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>书名</th>
+                            <th>作者</th>
+                            <th>阅读计划</th>
+                            <th>评论数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for book in book_list %}
+                        <tr>
+                            <td><a href="#">{{ book.title }}</a></td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.reading_plan }}</td>
+                            <td>{{ book.comments|length }}</td>
+                        </tr>
+                     {% endfor %}
+                     {% if not book_list %}
+                        <tr>
+                            <td colspan="4">当前没有任何书籍。</td>
+                        </tr>
+                     {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+
+            <section class="book-comments">
+                <h2>书评和感悟</h2>
+                <div class="comment">
+                    <p>学生A：</p>
+                    <p>这本书真的很不错，看完让我想了很多。</p>
+                    <p class="comment-date">2019-01-01</p>
+                </div>
+                <div class="comment">
+                    <p>导师：</p>
+                    <p>你的观点很深刻，可以再写详细一些。</p>
+                    <p class="comment-date">2019-01-03</p>
+                </div>
+                <div class="comment comment-reply">
+                    <textarea placeholder="回复导师"></textarea>
+                    <button>回复</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy;2023 我的圈子. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

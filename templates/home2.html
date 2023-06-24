@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>墨韵读书共享平台-注册成功页</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #e5e5e5;
+        }
+        .container {
+            margin-top: 100px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 500px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #1a73e8;
+            text-align: center;
+        }
+        .container p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .container a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .container a:hover {
+            color: #0b4e91;
+            transition: .3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>恭喜注册成功，{{ username }}！</h1>
+        <p><a href="{{ url_for('logout') }}">转到登录</a></p>
+    </div>
+</body>
+</html>

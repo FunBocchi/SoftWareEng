@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>墨韵读书共享平台-学号注册界面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #e5e5e5;
+        }
+        .container {
+            margin-top: 100px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 500px;
+            background-color: white;
+            padding: 40px;
+
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #1a73e8;
+            text-align: center;
+        }
+        .container form {
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"]  {
+            width: 350px;
+            height: 45px;
+            padding: 10px;
+            border-radius: 6px;
+            border:none ;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            width: 370px;
+            height: 45px;
+            background-color: #1a73e8;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            border:none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0b4e91;
+            transition: .3s;
+        }
+        .register-btn {
+            color: #1a73e8;
+        }
+        .register-btn:hover {
+            color: #0b4e91;
+            transition: .3s;
+        }
+        select {
+          width: 350px;
+          height: 45px;
+          padding: 10px;
+          border-radius: 6px;
+          border: none;
+          margin-bottom: 10px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12"><path d="M14.7 1.26c-.38-.38-1-.38-1.38 0L8 6.25 2.68 1.24c-.38-.38-1-.38-1.38 0-.38.38-.38 1 0 1.38l6 6.01c.2.2.46.31.71.31s.51-.11.71-.31l6-6.01c.39-.38.39-1.01 0-1.39z" fill="%23616161"/></svg>');
+          background-size: 12px;
+          background-position: right 12px center;
+          background-repeat: no-repeat;
+          color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>墨韵读书共享平台</h1>
+        <form method="post" action="{{ url_for('register_user') }}">
+            <input type="text" name="username" placeholder="请输入学号" required>
+            <br>
+            <input type="password" name="password" placeholder="请输入密码" required>
+            <br>
+            <select name="user_type">
+                <option value="student">学生</option>
+                <option value="teacher">导师</option>
+            </select>
+            <br>
+            <input type="hidden" name="user_type" value="{{ user_type }}">
+            <input type="submit" value="注册">
+        </form>
+        <p style="color: red;">{{ error }}</p>
+        <p>已有账号？<a href="{{ url_for('login') }}" class="register-btn">登录</a></p>
+    </div>
+</body>
+</html>
